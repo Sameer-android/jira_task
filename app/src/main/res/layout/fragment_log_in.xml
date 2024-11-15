@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/log_in_background"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:drawableStart="@drawable/jira"
+            android:fontFamily="sans-serif-condensed-light"
+            android:gravity="center"
+            android:text="@string/jira"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/idViewPager"
+            app:layout_constraintEnd_toEndOf="@id/idViewPager"
+            app:layout_constraintStart_toStartOf="@id/idViewPager"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/idViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/idDotsIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:dotsColor="@color/white"
+            app:dotsCornerRadius="5dp"
+            app:dotsSize="8dp"
+            app:dotsSpacing="2dp"
+            app:dotsStrokeColor="#40FFFFFF"
+            app:dotsStrokeWidth="2dp"
+            app:layout_constraintEnd_toEndOf="@id/idViewPager"
+            app:layout_constraintStart_toStartOf="@id/idViewPager"
+            app:layout_constraintTop_toBottomOf="@id/idViewPager" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/logIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/log_in_shape"
+            android:fontFamily=""
+            android:paddingVertical="12dp"
+            android:text="@string/log_in"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/signIN"
+            app:layout_constraintEnd_toEndOf="@id/signIN"
+            app:layout_constraintStart_toStartOf="@id/signIN" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/signIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/sign_in_shape"
+            android:fontFamily=""
+            android:paddingVertical="12dp"
+            android:text="@string/sign_up"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/belowTv"
+            app:layout_constraintEnd_toEndOf="@id/belowTv"
+            app:layout_constraintStart_toStartOf="@id/belowTv" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/belowTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily=""
+            android:text="@string/by_signing_up_you_agree_to_the_n_user_notice_and_privacy_policy"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            app:fontFamily=""
+            app:layout_constraintBottom_toTopOf="@id/cantTv"
+            app:layout_constraintStart_toStartOf="@id/cantTv"
+            app:layout_constraintEnd_toEndOf="@id/cantTv"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cantTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily=""
+            android:text="@string/can_t_log_in_or_sign_up"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

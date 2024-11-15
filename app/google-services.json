@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "419090779224",
+    "project_id": "jira-app-e2aa8",
+    "storage_bucket": "jira-app-e2aa8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419090779224:android:4a007478bd532159814e2d",
+        "android_client_info": {
+          "package_name": "com.example.jira"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419090779224-71hljm23p8h1mjk33aea2d4dlkdlua68.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jira",
+            "certificate_hash": "56aa39fe78c30470f1e8b59d54b73c6fb23fb829"
+          }
+        },
+        {
+          "client_id": "419090779224-rlp24ddgmr0j6jd5u5r0tg72hvvr5qob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAlQ6-91LjDTpAD9JGtxjDfm8PHSjPkss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419090779224-rlp24ddgmr0j6jd5u5r0tg72hvvr5qob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
