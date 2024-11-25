@@ -25,7 +25,6 @@ class CreateTaskFragment : Fragment() {
         binding = FragmentCreateTaskBinding.inflate(inflater, container, false)
         fetchDataFromFirestore()
         addDataFireStore()
-
         return binding.root
     }
 
@@ -58,7 +57,9 @@ class CreateTaskFragment : Fragment() {
                             ).show()
                             parentFragmentManager.setFragmentResult("taskAdded", Bundle())
 
-                            // Navigate back to OpenProjectFragment and pass the projectId
+                            // Pop back to OpenProjectFragment
+                            parentFragmentManager.popBackStack()
+                           /* // Navigate back to OpenProjectFragment and pass the projectId
                             val openProjectFragment = OpenProjectFragment().apply {
                                 arguments = Bundle().apply {
                                     putString("PROJECT_ID", projectId)
@@ -66,7 +67,7 @@ class CreateTaskFragment : Fragment() {
                             }
                             requireActivity().supportFragmentManager.beginTransaction()
                                 .replace(R.id.main, openProjectFragment)
-                                .commit()
+                                .commit()*/
                         }
                         .addOnFailureListener { e ->
                             Toast.makeText(

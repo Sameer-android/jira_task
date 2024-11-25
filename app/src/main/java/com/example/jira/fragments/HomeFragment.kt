@@ -12,6 +12,7 @@ import com.example.jira.R
 import com.example.jira.databinding.FragmentHomeBinding
 import com.example.jira.fragments.ShowDataFragment
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
 
 class HomeFragment : Fragment() {
@@ -24,7 +25,6 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         addDataFireStore()
         onTouchListenerRootLayout()
-
         return binding.root
     }
 
@@ -35,35 +35,35 @@ class HomeFragment : Fragment() {
             val role = binding.role.text.toString()
 
             if (empName.isEmpty() || code.isEmpty() || role.isEmpty()) {
-                Toast.makeText(requireContext(), "Please Fill All The Details", Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(requireContext(), "Please Fill All The Details", Toast.LENGTH_LONG).show()
             } else {
-                val db = Firebase.firestore
-                val user = hashMapOf(
-                    "name" to binding.nameEdit.text.toString(),
-                    "code" to binding.codeEdit.text.toString(),
-                    "role" to binding.role.text.toString(),
-                )
-                // Add a new document with a generated ID
-                db.collection("users")
-                    .add(user)
-                    .addOnSuccessListener { documentReference ->
-                        Toast.makeText(
-                            requireContext(),
-                            "DocumentSnapshot added with ID: ${documentReference.id}",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        requireActivity().supportFragmentManager.beginTransaction()
-                            .replace(R.id.main, ShowDataFragment()).commit()
-                    }
-                    .addOnFailureListener { e ->
-                        Toast.makeText(
-                            requireContext(),
-                            "Error: ${e.localizedMessage}",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        Log.d("fasofhaf", "${e.localizedMessage}")
-                    }
+                val currentUser = FirebaseAuth.getInstance().currentUser
+                val uid = currentUser?.uid
+
+                if (uid != null) {
+                    val db = Firebase.firestore
+                    val user = hashMapOf(
+                        "name" to empName,
+                        "code" to code,
+                        "role" to role,
+                        "email" to currentUser.email // Ensure email is saved too
+                    )
+
+                    // Save user data with UID as document ID
+                    db.collection("users").document(uid).set(user)
+                        .addOnSuccessListener {
+                            Toast.makeText(requireContext(), "Profile Created Successfully", Toast.LENGTH_LONG).show()
+
+                            requireActivity().supportFragmentManager.beginTransaction()
+                                .replace(R.id.main, ShowDataFragment()).commit()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(requireContext(), "Error: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                            Log.d("FirestoreError", "${e.localizedMessage}")
+                        }
+                } else {
+                    Toast.makeText(requireContext(), "User not authenticated", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

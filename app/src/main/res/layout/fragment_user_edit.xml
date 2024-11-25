@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CreateTaskFragment">
+    tools:context=".UserEditFragment">
 
 
     <EditText
-        android:id="@+id/module"
+        android:id="@+id/nameEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text"
         android:elevation="10dp"
-        android:hint="Module of Project"
+        android:hint="Name"
         android:inputType="textPersonName"
         android:padding="15dp"
         android:paddingStart="18dp"
@@ -28,8 +28,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
-        android:id="@+id/tasks"
+        android:id="@+id/codeEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -37,30 +38,30 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text"
         android:elevation="10dp"
-        android:hint="@string/tasks"
+        android:hint="Code"
+        android:inputType="textMultiLine"
+        android:maxLines="10"
         android:padding="15dp"
         android:paddingStart="18dp"
         android:shadowColor="@color/black"
         android:textColorHint="#777"
-        android:inputType="textMultiLine"
-        android:maxLines="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/module" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEdit" />
 
     <EditText
-        android:id="@+id/assignTo"
+        android:id="@+id/roleEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text"
+        android:editable="true"
         android:elevation="10dp"
-        android:hint="@string/assign"
+        android:hint="Role"
         android:inputType="none"
-        android:editable="false"
         android:padding="15dp"
         android:paddingStart="18dp"
         android:shadowColor="@color/black"
@@ -68,28 +69,48 @@
         android:textColorHint="#777"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tasks" />
+        app:layout_constraintTop_toBottomOf="@id/codeEdit" />
 
 
     <TextView
-        android:id="@+id/submitTask"
+        android:id="@+id/updateUser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@color/blue"
         android:elevation="10dp"
-        android:padding="15dp"
-        android:paddingStart="18dp"
+        android:paddingVertical="12dp"
         android:shadowColor="@color/black"
         android:shadowDy="4"
-        android:text="@string/submit_task"
+        android:text="Update"
         android:textAlignment="center"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/deleteUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/assignTo" />
+        app:layout_constraintTop_toBottomOf="@+id/roleEdit"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/deleteUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="74dp"
+        android:background="#CC003A"
+        android:elevation="10dp"
+        android:paddingVertical="12dp"
+        android:shadowColor="@color/black"
+        android:shadowDy="4"
+        android:text="Delete"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

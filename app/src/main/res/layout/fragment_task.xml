@@ -13,7 +13,7 @@
         android:layout_marginTop="32dp"
         android:padding="10dp"
         android:text="@string/projects_tasks"
-        android:textColor="@color/black"
+        android:textColor="#1A67DC"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

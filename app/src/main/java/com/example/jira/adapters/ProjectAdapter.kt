@@ -2,7 +2,9 @@ package com.example.jira.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jira.dataClasses.AddProject
 import com.example.jira.dataClasses.OnItemClickListener
@@ -27,8 +29,9 @@ class ProjectAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val items = projectList[position]
         holder.binding.projectName.text = items.projectName
+        anim(holder.itemView)
 
-        holder.binding.projectMain.setOnClickListener {
+        holder.binding.projectName.setOnClickListener {
             onClick.onClick(position, "PROJECTS")
         }
     }
@@ -38,4 +41,9 @@ class ProjectAdapter(
     }
 
     class ViewHolder(var binding: RvItemBinding) : RecyclerView.ViewHolder(binding.root)
+    fun anim(view: View){
+        var animation= AlphaAnimation(0.0f,1.0f)
+        animation.duration=1000
+        view.startAnimation(animation)
+    }
 }

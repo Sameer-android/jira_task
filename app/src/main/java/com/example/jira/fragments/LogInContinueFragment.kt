@@ -64,28 +64,16 @@ class LogInContinueFragment : Fragment() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.main, ShowDataFragment())
-                .commit()
-        } else {
-            binding.googleLayout.setOnClickListener {
-                val signInClient = googleSignInClient.signInIntent
-                launcher.launch(signInClient)
-            }
-        }
-    }
-
     private fun onGoogleClick() {
         binding.cantLogIn.setOnClickListener {
             val cantUrl =
                 "https://support.atlassian.com/atlassian-account/docs/troubleshoot-login-issues-with-your-atlassian-account/"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(cantUrl))
             startActivity(intent)
+        }
+        binding.googleLayout.setOnClickListener {
+            val signInClient = googleSignInClient.signInIntent
+            launcher.launch(signInClient)
         }
     }
 

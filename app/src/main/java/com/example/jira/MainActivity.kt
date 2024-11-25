@@ -1,5 +1,6 @@
 package com.example.jira
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import com.example.jira.databinding.ActivityMainBinding
 import com.example.jira.fragments.LogInFragment
 import com.example.jira.fragments.ProfileFragment
 import com.example.jira.fragments.ShowDataFragment
+import com.example.jira.fragments.SplashFragment
 import com.example.jira.fragments.TaskFragment
 import com.example.jira.fragments.UserFragment
 
@@ -21,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeFragment() {
-        supportFragmentManager.beginTransaction().replace(R.id.main, LogInFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.main, SplashFragment()).commit()
         binding.bottomBarMain.setOnItemSelectedListener { pos: Int ->
             val selectedFragment = when (pos) {
                 0 -> ShowDataFragment()

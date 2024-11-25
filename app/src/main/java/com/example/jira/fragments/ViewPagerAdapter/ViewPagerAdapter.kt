@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewpager.widget.PagerAdapter
 import com.example.jira.R
 
@@ -19,7 +19,7 @@ class ViewPagerAdapter(
     override fun getCount(): Int = imageList.size
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean =
-        view === `object` as RelativeLayout
+        view === `object` as ConstraintLayout
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -38,6 +38,6 @@ class ViewPagerAdapter(
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(`object` as RelativeLayout)
+        container.removeView(`object` as ConstraintLayout)
     }
 }

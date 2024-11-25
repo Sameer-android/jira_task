@@ -35,6 +35,7 @@ class OpenProjectFragment : Fragment() {
         return binding.root
     }
 
+
     private fun showTask() {
         val projectId = arguments?.getString("PROJECT_ID")
         if (projectId != null) {
@@ -123,6 +124,7 @@ class OpenProjectFragment : Fragment() {
         (activity as MainActivity).showBottomBar(false)
         showTask()
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

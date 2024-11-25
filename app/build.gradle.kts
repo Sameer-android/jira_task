@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    id("kotlin-kapt")
 }
 
 android {
@@ -55,6 +56,14 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.tbuonomo:dotsindicator:4.3")
     implementation ("com.github.ibrahimsn98:SmoothBottomBar:1.7.9")
+//dimensions
+    implementation ("com.intuit.sdp:sdp-android:1.1.0")
+    implementation ("com.intuit.ssp:ssp-android:1.1.0")
+
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    kapt ("com.github.bumptech.glide:compiler:4.15.1")
+
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
 
 }

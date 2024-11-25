@@ -31,9 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/log_in_to_continue"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/jiraTv" />
@@ -48,11 +48,11 @@
         android:background="@drawable/enteremail_shape"
         android:fontFamily=""
         android:hint="@string/enter_your_email"
+        android:inputType="textEmailAddress"
         android:paddingVertical="15dp"
         android:paddingStart="5dp"
         android:textColorHint="@color/black"
         android:textSize="12sp"
-        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@id/logInContinue"
         app:layout_constraintStart_toStartOf="@id/logInContinue"
         app:layout_constraintTop_toBottomOf="@id/logInContinue" />
@@ -95,9 +95,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:paddingVertical="12dp"
         android:background="@drawable/shape"
         android:gravity="center"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/orContinueWith">
@@ -105,8 +105,8 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/google_icon"
-            android:contentDescription="Google Icon" />
+            android:contentDescription="Google Icon"
+            android:src="@drawable/google_icon" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/googleTv"
@@ -118,14 +118,15 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/microsoftLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:paddingVertical="12dp"
         android:background="@drawable/shape"
         android:gravity="center"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="@id/googleLayout"
         app:layout_constraintStart_toStartOf="@id/googleLayout"
         app:layout_constraintTop_toBottomOf="@id/googleLayout">
@@ -133,8 +134,8 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/microsoft_logo"
-            android:contentDescription="Google Icon" />
+            android:contentDescription="Google Icon"
+            android:src="@drawable/microsoft_logo" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/microsoftTv"
@@ -146,14 +147,15 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@id/appleLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:paddingVertical="12dp"
         android:background="@drawable/shape"
         android:gravity="center"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="@id/microsoftLayout"
         app:layout_constraintStart_toStartOf="@id/microsoftLayout"
         app:layout_constraintTop_toBottomOf="@id/microsoftLayout">
@@ -161,8 +163,8 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/apple_icon"
-            android:contentDescription="Apple Icon" />
+            android:contentDescription="Apple Icon"
+            android:src="@drawable/apple_icon" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/appleTv"
@@ -174,14 +176,15 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/slackLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:paddingVertical="12dp"
         android:background="@drawable/shape"
         android:gravity="center"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="@id/appleLayout"
         app:layout_constraintStart_toStartOf="@id/appleLayout"
         app:layout_constraintTop_toBottomOf="@id/appleLayout">
@@ -189,8 +192,8 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/slack_logo_icon"
-            android:contentDescription="Slack Icon" />
+            android:contentDescription="Slack Icon"
+            android:src="@drawable/slack_logo_icon" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/slackTv"
@@ -202,6 +205,7 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/cantLogIn"
         android:layout_width="0dp"
@@ -216,7 +220,7 @@
 
     <ImageView
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"

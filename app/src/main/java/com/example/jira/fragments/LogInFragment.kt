@@ -21,19 +21,21 @@ import com.example.jira.R
 import com.example.jira.databinding.FragmentLogInBinding
 import com.example.jira.fragments.ViewPagerAdapter.ViewPagerAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.auth.FirebaseAuth
 
 class LogInFragment : Fragment() {
     private lateinit var binding: FragmentLogInBinding
     private lateinit var viewPagerAdapter: ViewPagerAdapter
     private lateinit var imageList: List<Int>
     private lateinit var textList: List<String>
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireActivity().window.decorView.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        requireActivity().window.statusBarColor = Color.TRANSPARENT
+        requireActivity().window.statusBarColor = Color.parseColor("#0062f7")
     }
 
     override fun onCreateView(
@@ -42,6 +44,7 @@ class LogInFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLogInBinding.inflate(inflater, container, false)
+        auth = FirebaseAuth.getInstance()
         imageListAdd()
         startIconAndTextAnimation()
         replaceFragment()
@@ -52,6 +55,16 @@ class LogInFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         (activity as MainActivity).showBottomBar(false)
+    }
+    override fun onStart() {
+        super.onStart()
+
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.main, ShowDataFragment())
+                .commit()
+        }
     }
 
     private fun underLineText() {

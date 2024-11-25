@@ -18,7 +18,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class ShowDataFragment : Fragment(), OnItemClickListener.OnItemClick {
-    private var projectAdapter: ProjectAdapter? = null
+   /* private var projectAdapter: ProjectAdapter? = null*/
+   private lateinit var projectAdapter: ProjectAdapter
     private lateinit var binding: FragmentShowDataBinding
 
     override fun onCreateView(
@@ -31,7 +32,7 @@ class ShowDataFragment : Fragment(), OnItemClickListener.OnItemClick {
         return binding.root
     }
 
-    private fun addRecyclerView() {
+    /*private fun addRecyclerView() {
         val list = arrayListOf<AddProject>()
         projectAdapter = ProjectAdapter(list, requireContext(), this@ShowDataFragment)
         binding.rvShowData.layoutManager = LinearLayoutManager(requireContext())
@@ -50,7 +51,40 @@ class ShowDataFragment : Fragment(), OnItemClickListener.OnItemClick {
                 }
                 projectAdapter!!.notifyDataSetChanged()
             }
+    }*/
+    private fun addRecyclerView() {
+        val list = arrayListOf<AddProject>()
+        projectAdapter = ProjectAdapter(list, requireContext(), this@ShowDataFragment)
+        binding.rvShowData.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvShowData.adapter = projectAdapter
+
+        val db = Firebase.firestore
+        // Read data
+        db.collection("projects")
+            .addSnapshotListener { result, e ->
+                if (e != null) {
+                    Log.e(TAG, "Error fetching projects", e)
+                    return@addSnapshotListener
+                }
+
+                if (result != null) {
+                    list.clear()
+                    for (document in result.documents) {
+                        val project = document.toObject(AddProject::class.java)
+                        if (project != null) {
+                            project.id = document.id
+                            list.add(project)
+                        } else {
+                            Log.w(TAG, "Project document is null")
+                        }
+                    }
+                    projectAdapter?.notifyDataSetChanged()
+                } else {
+                    Log.w(TAG, "Snapshot result is null")
+                }
+            }
     }
+
 
     private fun addProject() {
         binding.addProject.setOnClickListener {

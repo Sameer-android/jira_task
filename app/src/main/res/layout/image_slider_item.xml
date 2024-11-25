@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!--on below line we are creating an image view-->
     <ImageView
         android:id="@+id/idIVImage"
-        android:layout_width="match_parent"
-        android:layout_height="275dp"
-        android:layout_centerHorizontal="true"/>
-    <TextView
-        android:id="@+id/idTVText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idIVImage"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_centerHorizontal="true"
-        android:textAlignment="center"
-        android:text="@string/sample_text_for_the_purpose"
-        android:fontFamily=""
-        android:textColor="@color/lightText"
-        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/idTVText"
+
         />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/idTVText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idIVImage"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:fontFamily=""
+        android:maxLines="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/sample_text_for_the_purpose"
+        android:textAlignment="center"
+        android:textColor="@color/lightText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
